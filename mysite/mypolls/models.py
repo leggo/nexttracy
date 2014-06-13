@@ -1,11 +1,9 @@
 from django.db import models
 
+class Object(models.Model):
+	name = models.CharField(max_length=200)
+	descrpiton = models.TextField()
+	created = models.DateTimeField(auto_now_add=True)
+	slug = models.SlugField()
+	
 
-class Poll(models.Model):
-    question = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
-
-class Choice(models.Model):
-    poll = models.ForeignKey(Poll)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
